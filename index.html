@@ -92,11 +92,19 @@
   .qr{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--border);font-size:14.5px}
   .qr:last-child{border-bottom:0}
   .qr .qi{font-size:15px;flex:0 0 20px;text-align:center}
+  /* tax-loss harvesting callout + tips */
+  .hcall{background:#f0f9f2;border:1px solid #bfe3c8;border-radius:12px;padding:16px 18px;margin:18px 0 8px}
+  .hcall-h{font-weight:700;color:#1e7e34;font-size:15px;margin-bottom:6px}
+  .hcall p{margin:0;font-size:14.5px;color:var(--fg-body)}
+  .tiph{font-size:16px;color:var(--fg-strong);font-weight:650;margin:24px 0 4px}
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .tip{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:14px 15px;font-size:13.6px;color:var(--fg-muted)}
+  .tip b{color:var(--fg-strong);font-weight:650}
   ul.lead{padding-left:20px;margin:0}
   ul.lead li{margin:8px 0;font-size:15.5px}
   footer{text-align:center;padding:40px 0 60px;color:var(--fg-muted);font-size:13px}
   .disclaimer{max-width:620px;margin:24px auto 0;font-size:12px;color:var(--fg-muted);text-align:center;line-height:1.5}
-  @media(max-width:560px){h1{font-size:31px}.cards{grid-template-columns:1fr}}
+  @media(max-width:560px){h1{font-size:31px}.cards{grid-template-columns:1fr}.tips{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -195,6 +203,28 @@
       </div>
     </div>
     <p class="shotcap">For each flagged position: short- vs long-term status, the tax cost of selling today, and the days until long-term rates kick in.</p>
+
+    <div class="hcall">
+      <div class="hcall-h">💡 Worked example — tax-loss harvesting</div>
+      <p>Say trimming <strong>NVDA</strong> realizes a <strong>+$9,200</strong> gain. TrimSmart spots that
+         <strong>PYPL</strong> is sitting on a <strong>−$2,100</strong> unrealized loss. Sell PYPL in the
+         <em>same</em> tax year and that loss offsets the gain dollar-for-dollar — shrinking the taxable
+         gain to <strong>$7,100</strong> and saving roughly <span class="save">~$500</span> in tax. More
+         losses than gains? Up to <strong>$3,000</strong> can offset ordinary income this year, and the
+         rest carries forward to future years.</p>
+    </div>
+
+    <div class="tiph">Other tax tips TrimSmart surfaces</div>
+    <div class="tips">
+      <div class="tip"><b>Mind the wash-sale rule.</b> Re-buying the same (or a substantially identical)
+        security within 30 days of harvesting a loss disallows it — TrimSmart flags the risk.</div>
+      <div class="tip"><b>Cross the one-year line.</b> Holding past 12 months drops the rate from ordinary
+        income (up to 37%) to 0/15/20%. The report shows the exact days remaining.</div>
+      <div class="tip"><b>Sell the right lots.</b> Specific-lot identification lets you sell your
+        highest-cost shares first, minimizing the taxable gain on a trim.</div>
+      <div class="tip"><b>Watch the 3.8% NIIT.</b> Above the income threshold an extra net-investment-income
+        surtax applies — it's built into the tax estimates.</div>
+    </div>
   </section>
 
   <!-- QUICK RECOMMENDATIONS -->
