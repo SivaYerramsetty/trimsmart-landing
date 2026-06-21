@@ -54,7 +54,44 @@
   .flag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px}
   .flag.trim{background:#fff3cd;color:#7d6608}
   .flag.hold{background:#d4edda;color:#1e7e34}
+  .flag.sell{background:#f8d7da;color:#a02622}
   .save{color:var(--accent);font-weight:650}
+
+  /* mockup "screenshots" */
+  .shot{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin:16px 0 6px}
+  .shot-bar{display:flex;align-items:center;gap:6px;padding:9px 13px;background:#f3f5f7;border-bottom:1px solid var(--border)}
+  .shot-bar .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .shot-bar .d1{background:#ff5f57}.shot-bar .d2{background:#febc2e}.shot-bar .d3{background:#28c840}
+  .shot-bar .cap{margin-left:9px;font-size:12px;color:var(--fg-muted)}
+  .shot-body{padding:18px}
+  .shotcap{font-size:12.5px;color:var(--fg-muted);margin:0 2px 24px;text-align:center}
+  /* verdict card */
+  .vhead{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .vhead .tk{font-size:18px;font-weight:750;color:var(--fg-strong)}
+  .vhead .nm{font-size:13px;color:var(--fg-muted)}
+  .badge{font-size:12px;font-weight:700;color:#fff;border-radius:7px;padding:5px 11px;letter-spacing:.3px;white-space:nowrap}
+  .badge.add{background:#27ae60}
+  .scorewrap{display:flex;align-items:center;gap:10px;margin:12px 0 16px}
+  .scorebar{flex:1;height:8px;border-radius:99px;background:#edf0f2;overflow:hidden}
+  .scorebar>i{display:block;height:100%;border-radius:99px;background:#27ae60}
+  .scorenum{font-weight:750;color:var(--fg-strong);font-size:13.5px;white-space:nowrap}
+  .filters{display:grid;grid-template-columns:1fr 1fr;gap:7px 20px}
+  .filt{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--fg-body)}
+  .filt .ic{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#fff;flex:0 0 16px}
+  .filt.pass .ic{background:#27ae60}.filt.fail .ic{background:#c0392b}
+  .filt.fail{color:var(--fg-muted)}
+  /* tax table */
+  .txt{width:100%;border-collapse:collapse;font-size:13.5px}
+  .txt th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--fg-muted);font-weight:650;padding:0 8px 9px 0}
+  .txt td{padding:10px 8px 10px 0;border-top:1px solid var(--border);vertical-align:middle}
+  .txt .tk{font-weight:700;color:var(--fg-strong)}
+  .txt .st{color:#c0392b;font-weight:600}
+  .txt .lt{color:#1e7e34;font-weight:600}
+  .txt .num{font-variant-numeric:tabular-nums}
+  /* quick-reco list */
+  .qr{display:flex;gap:11px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--border);font-size:14.5px}
+  .qr:last-child{border-bottom:0}
+  .qr .qi{font-size:15px;flex:0 0 20px;text-align:center}
   ul.lead{padding-left:20px;margin:0}
   ul.lead li{margin:8px 0;font-size:15.5px}
   footer{text-align:center;padding:40px 0 60px;color:var(--fg-muted);font-size:13px}
@@ -67,8 +104,8 @@
   <div class="wrap">
     <div class="logo">TrimSmart</div>
     <h1>Know which positions to trim — <span class="hl">and when</span> — so you keep more after taxes.</h1>
-    <p class="sub">A tax-aware analyzer for self-directed investors. Link your brokerage, and it tells you which
-       holdings are weakening, and the lowest-tax way to sell them.</p>
+    <p class="sub">A tax-aware analyzer for self-directed investors. Link your brokerage and it scores every holding,
+       flags what to trim and the lowest-tax way to do it — and vets your watchlist before you buy.</p>
     <div class="pill">⚡ Early access · free for the first 100 testers</div>
   </div>
 </header>
@@ -100,25 +137,78 @@
   <section>
     <h3>What TrimSmart does</h3>
     <ul class="lead">
-      <li><strong>Scores every holding</strong> on a 9-point quality framework (growth, margins, debt, valuation vs. analyst targets).</li>
-      <li><strong>Flags what's weakening</strong> — positions failing quality checks <em>and</em> trading above fair value.</li>
-      <li><strong>Times the tax</strong> — shows your gain as short-term vs. long-term, the tax cost of selling now, and how many days until a position turns long-term.</li>
-      <li><strong>Suggests the least-taxable way to trim</strong> — specific-lot selling, loss harvesting pairs, and more.</li>
+      <li><strong>Scores every holding</strong> on a 9-point quality framework — revenue &amp; EPS growth, margins, ROE, debt, valuation, and free cash flow — distilled into one composite score.</li>
+      <li><strong>Gives a clear verdict</strong> per position — ADD, HOLD, TRIM, or SELL — by blending that quality score with analyst price targets and recent insider activity.</li>
+      <li><strong>Evaluates your watchlist too</strong> — runs the same framework on tickers you're <em>considering</em>, so you get a "should I buy?" read <em>before</em> you commit, not just on what you already own.</li>
+      <li><strong>Summarizes the whole portfolio at a glance</strong> — quick recommendations surface trim candidates, over-concentrated positions, high-conviction adds, and names trading above their analyst target.</li>
+      <li><strong>Times the tax</strong> — shows each gain as short-term vs. long-term, the tax cost of selling today, and how many days until a position turns long-term.</li>
+      <li><strong>Finds the least-taxable way to trim</strong> — specific-lot selling and loss-harvesting pairs to offset gains.</li>
     </ul>
   </section>
 
-  <!-- EXAMPLE -->
+  <!-- SCREENSHOTS / MOCKUPS -->
   <section>
-    <h3>What you'd see</h3>
-    <div class="example">
-      <div class="row"><span class="t">NVDA · 3/9 quality · +22% vs target</span>
-        <span><span class="flag trim">TRIM</span></span></div>
-      <div class="row"><span style="color:var(--fg-muted)">Short-term gain — wait 19 days for long-term rate</span>
-        <span class="save">save ~$1,840 in tax</span></div>
-      <div class="row"><span class="t">COST · 8/9 quality · −4% vs target</span>
-        <span><span class="flag hold">HOLD</span></span></div>
+    <h3>See it in action</h3>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="cap">Holding detail — verdict &amp; quality score</span></div>
+      <div class="shot-body">
+        <div class="vhead">
+          <div><span class="tk">META</span> &nbsp;<span class="nm">Meta Platforms · Communication Svcs</span></div>
+          <span class="badge add">ADD</span>
+        </div>
+        <div class="scorewrap"><div class="scorebar"><i style="width:84%"></i></div><span class="scorenum">Composite 84 / 100</span></div>
+        <div class="filters">
+          <div class="filt pass"><span class="ic">✓</span> Revenue growth ≥ 10%</div>
+          <div class="filt pass"><span class="ic">✓</span> EPS growth ≥ 10%</div>
+          <div class="filt pass"><span class="ic">✓</span> ROE ≥ 15%</div>
+          <div class="filt pass"><span class="ic">✓</span> Operating margin ≥ 15%</div>
+          <div class="filt pass"><span class="ic">✓</span> Debt / equity &lt; 1</div>
+          <div class="filt pass"><span class="ic">✓</span> Free cash flow positive</div>
+          <div class="filt pass"><span class="ic">✓</span> PEG &lt; 2</div>
+          <div class="filt fail"><span class="ic">✕</span> P/E &lt; 30</div>
+          <div class="filt pass"><span class="ic">✓</span> Below analyst target</div>
+        </div>
+      </div>
     </div>
-    <p class="tiny" style="margin-top:10px">Illustrative example. Numbers are not a recommendation.</p>
+    <p class="shotcap">Every holding gets a 9-filter quality breakdown and a composite score behind its verdict.</p>
+
+    <div class="shot">
+      <div class="shot-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <span class="cap">Tax-aware trim guidance</span></div>
+      <div class="shot-body">
+        <table class="txt">
+          <thead><tr><th>Position</th><th>Holding</th><th>Gain</th><th>Tax if sold now</th><th>Days&nbsp;to&nbsp;LT</th><th></th></tr></thead>
+          <tbody>
+            <tr><td class="tk">NVDA</td><td class="st">Short-term</td><td class="num">+$9,200</td>
+                <td class="num">~$3,400 → <span class="lt">~$1,560</span></td><td class="num">19</td>
+                <td><span class="flag trim">TRIM</span></td></tr>
+            <tr><td class="tk">PYPL</td><td class="lt">Long-term</td><td class="num">−$2,100</td>
+                <td class="num">harvest the loss</td><td class="num">—</td>
+                <td><span class="flag sell">SELL</span></td></tr>
+            <tr><td class="tk">COST</td><td class="lt">Long-term</td><td class="num">+$5,800</td>
+                <td class="num">~$870</td><td class="num">—</td>
+                <td><span class="flag hold">HOLD</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="shotcap">For each flagged position: short- vs long-term status, the tax cost of selling today, and the days until long-term rates kick in.</p>
+  </section>
+
+  <!-- QUICK RECOMMENDATIONS -->
+  <section>
+    <h3>What you'd see first</h3>
+    <p style="color:var(--fg-muted);font-size:15px;margin:0 0 14px">One glance at the top of every report — the whole portfolio, summarized:</p>
+    <div class="example">
+      <div class="qr"><span class="qi">✂️</span><div><strong>Trim candidates:</strong> NVDA, AVGO — failing quality checks <em>and</em> trading above target.</div></div>
+      <div class="qr"><span class="qi">⚠️</span><div><strong>Concentration:</strong> AAPL is 21% of the portfolio — consider rebalancing.</div></div>
+      <div class="qr"><span class="qi">★</span><div><strong>High-conviction adds:</strong> META, GOOGL, TSM — strong quality with upside to target.</div></div>
+      <div class="qr"><span class="qi">↑</span><div><strong>Above analyst target:</strong> AVGO — limited upside to consensus.</div></div>
+      <div class="qr"><span class="qi">🔻</span><div><strong>Weak fundamentals:</strong> PYPL (3/9) — watch the quality trend.</div></div>
+    </div>
+    <p class="tiny" style="margin-top:10px">Illustrative example with sample tickers. Not investment advice or a recommendation.</p>
   </section>
 
   <!-- WHO -->
