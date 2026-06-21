@@ -64,6 +64,7 @@
   .shot-bar .d1{background:#ff5f57}.shot-bar .d2{background:#febc2e}.shot-bar .d3{background:#28c840}
   .shot-bar .cap{margin-left:9px;font-size:12px;color:var(--fg-muted)}
   .shot-body{padding:18px}
+  .shot-img{display:block;width:100%;height:auto}
   .shotcap{font-size:12.5px;color:var(--fg-muted);margin:0 2px 24px;text-align:center}
   /* verdict card */
   .vhead{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
@@ -160,27 +161,12 @@
 
     <div class="shot">
       <div class="shot-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
-        <span class="cap">Holding detail — verdict &amp; quality score</span></div>
-      <div class="shot-body">
-        <div class="vhead">
-          <div><span class="tk">META</span> &nbsp;<span class="nm">Meta Platforms · Communication Svcs</span></div>
-          <span class="badge add">ADD</span>
-        </div>
-        <div class="scorewrap"><div class="scorebar"><i style="width:84%"></i></div><span class="scorenum">Composite 84 / 100</span></div>
-        <div class="filters">
-          <div class="filt pass"><span class="ic">✓</span> Revenue growth ≥ 10%</div>
-          <div class="filt pass"><span class="ic">✓</span> EPS growth ≥ 10%</div>
-          <div class="filt pass"><span class="ic">✓</span> ROE ≥ 15%</div>
-          <div class="filt pass"><span class="ic">✓</span> Operating margin ≥ 15%</div>
-          <div class="filt pass"><span class="ic">✓</span> Debt / equity &lt; 1</div>
-          <div class="filt pass"><span class="ic">✓</span> Free cash flow positive</div>
-          <div class="filt pass"><span class="ic">✓</span> PEG &lt; 2</div>
-          <div class="filt fail"><span class="ic">✕</span> P/E &lt; 30</div>
-          <div class="filt pass"><span class="ic">✓</span> Below analyst target</div>
-        </div>
-      </div>
+        <span class="cap">Holdings — quality, analyst &amp; verdict at a glance</span></div>
+      <a href="assets/holding-table.png" target="_blank" rel="noopener" title="Open full-size">
+        <img class="shot-img" src="assets/holding-table.png"
+             alt="TrimSmart holdings table: each row shows price vs. analyst target, the 9-point quality score, a composite score, analyst ratings, insider activity, and a clear verdict (BUY / WATCH) with a score." /></a>
     </div>
-    <p class="shotcap">Every holding gets a 9-filter quality breakdown and a composite score behind its verdict.</p>
+    <p class="shotcap">Every holding side by side — price vs. analyst target, the 9-point quality score, composite, insider activity, and a clear verdict. <span style="white-space:nowrap">(Tap to enlarge.)</span></p>
 
     <div class="shot">
       <div class="shot-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
